@@ -7,10 +7,14 @@ test('Invalid Login with username  Validation',async({page})=>{
     const invalidusernamecred =new InvalidUsernameLogin(page)
     await invalidusernamecred.goto()
     await invalidusernamecred.clickLoginLink()
-    page.on('dialog',async dialog =>{  
-    expect (dialog.message()).toBe ('User does not exist.')  
+    await invalidusernamecred.fillInValidCredentials(invalidusername.username, usersignup.password)
+    //adding assertion
+    page.on('dialog', async dialog => {
+
+    expect(dialog.message()).toContain('User does not exist')
+
     await dialog.accept()
 })
-    await invalidusernamecred.fillInValidCredentials(invalidusername.username, usersignup.password)
     await invalidusernamecred.clickLoginbtn()
+    
 })

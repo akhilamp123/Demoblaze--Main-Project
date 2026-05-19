@@ -7,4 +7,5 @@ test('demoblaze signup',async({page})=>{
     await signup.goto()
     await signup.clickSignUpLink()
     await signup.signUp(usersignup.username, usersignup.password)
+    await expect(page).toHaveTitle('STORE')
 })

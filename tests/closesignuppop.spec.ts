@@ -8,6 +8,6 @@ test('Close signup popup',async({page})=>{
     await closesignup.goto()
     await closesignup.clickSignUpLink()
     await closesignup.fillAndClose(usersignup.username, usersignup.password)
-
+    await expect(page).toHaveTitle('STORE')
     
 })

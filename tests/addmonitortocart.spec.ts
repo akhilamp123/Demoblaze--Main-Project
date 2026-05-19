@@ -25,5 +25,6 @@ test('Add monitor to cart',async({page})=>{
     await dialog.accept()
 })
     await addmonitortocart.clickPurchaseButton()
+    await expect(page).toHaveURL('https://www.demoblaze.com/cart.html')
 
 })

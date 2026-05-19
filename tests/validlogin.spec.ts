@@ -8,4 +8,5 @@ test('Valid Login Validation',async({page})=>{
     await validcred.clickLoginLink()
     await validcred.fillValidCredentials(usersignup.username, usersignup.password)
     await validcred.clickLoginbtn()
+    await expect(page).toHaveURL('https://www.demoblaze.com/')
 })

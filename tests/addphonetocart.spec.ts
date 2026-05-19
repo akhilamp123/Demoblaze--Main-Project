@@ -25,5 +25,6 @@ test('Add phone to cart',async({page})=>{
     await dialog.accept()
 })
     await addphntocart.clickPurchaseButton()
+    await expect(page).toHaveURL('https://www.demoblaze.com/cart.html')
 
 })

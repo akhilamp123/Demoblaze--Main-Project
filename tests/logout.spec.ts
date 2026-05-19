@@ -10,5 +10,5 @@ test('Logout from demoblaze',async({page})=>{
     await logout.fillValidCredentials(usersignup.username, usersignup.password)
     await logout.clickLoginbtn()
     await logout.clickLogout()
-
+    await expect(page).toHaveURL('https://www.demoblaze.com/index.html')
 })

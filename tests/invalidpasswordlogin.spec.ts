@@ -7,10 +7,13 @@ test('Invalid Login with password Validation',async({page})=>{
     const invalidpasswordcred =new InvalidPasswordLogin(page)
     await invalidpasswordcred.goto()
     await invalidpasswordcred.clickLoginLink()
-    page.on('dialog',async dialog =>{  
-    expect (dialog.message()).toBe ('User does not exist.')  
+    await invalidpasswordcred.fillInValidCredentials(usersignup.username, invalidpassword.password)
+    //adding assertion
+    page.on('dialog', async dialog => {
+
+    expect(dialog.message()).toContain('User does not exist')
+
     await dialog.accept()
 })
-    await invalidpasswordcred.fillInValidCredentials(usersignup.username, invalidpassword.password)
     await invalidpasswordcred.clickLoginbtn()
 })
